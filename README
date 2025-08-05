@@ -1,0 +1,64 @@
+# Enigma App – Fluxo da Aplicação
+
+## Visão Geral
+
+Este aplicativo React Native utiliza navegação por Drawer (menu lateral) e Stack (pilha de telas) para gerenciar o acesso dos usuários a diferentes funcionalidades, como login, consulta e cadastro de itens, etiquetas, dashboard e leitura de QR Code.
+
+---
+
+## Fluxo de Navegação
+
+1. **Login**
+   - O usuário inicia na tela de login (`LoginScreen`).
+   - Ao inserir as credenciais corretas, o estado de autenticação é atualizado e o usuário é direcionado para o menu principal.
+
+2. **Menu Principal (Drawer)**
+   - Após o login, o usuário acessa o Drawer Navigator, que exibe as opções de navegação:
+     - Home
+     - Consultar Itens
+     - Consultar Etiquetas
+     - Adicionar Etiquetas
+     - Dashboard
+     - Validar QR Code
+     - Cadastro RH
+
+3. **Funcionalidades das Telas**
+   - **Home:** Tela de boas-vindas, com opção de abrir o menu lateral ou sair (logout).
+   - **Consultar Itens:** Tela para consulta de itens cadastrados.
+   - **Consultar Etiquetas:** Tela para consulta de etiquetas cadastradas.
+   - **Adicionar Etiquetas:** Tela para adicionar novas etiquetas.
+   - **Dashboard:** Tela para exibição de gráficos e métricas (placeholder).
+   - **Validar QR Code:** Tela para leitura e validação de QR Codes usando a câmera.
+   - **Cadastro RH:** Tela para cadastro de novos usuários do RH.
+
+4. **Logout**
+   - O usuário pode sair do sistema a qualquer momento pelo botão "Sair" na tela Home.
+   - O contexto de logout redefine o estado de autenticação e retorna o usuário para a tela de login.
+
+---
+
+## Estrutura de Navegação
+
+- **StackNavigator:** Gerencia a transição entre a tela de login e o Drawer principal.
+- **DrawerNavigator:** Gerencia as telas acessíveis após o login via menu lateral.
+
+---
+
+## Contexto
+
+- **LogoutContext:** Fornece a função de logout para os componentes, permitindo que qualquer tela acione o logout de forma centralizada.
+
+---
+
+## Resumo do Fluxo
+
+1. Usuário acessa o app → Tela de Login
+2. Login bem-sucedido → Menu lateral (Drawer) com todas as opções
+3. Navegação entre as telas pelo Drawer
+4. Logout disponível no menu, retornando para a tela de login
+
+---
+
+## Observações
+
+- O fluxo pode ser expandido para incluir autenticação real, integração com banco de dados e funcionalidades adicionais conforme necessário.
